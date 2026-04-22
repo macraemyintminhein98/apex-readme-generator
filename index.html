@@ -3,148 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>APEX README Generator</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <title>README.md Generator</title>
+    <meta name="description" content="Generate professional README.md files for your projects.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: sans-serif; }
+        body { font-family: 'Inter', sans-serif; }
     </style>
 </head>
-<body class="bg-gray-100 flex items-center justify-center min-h-screen p-4">
-    <div class="bg-white p-8 rounded-lg shadow-md w-full max-w-2xl">
-        <h1 class="text-3xl font-bold text-center mb-6 text-gray-800">APEX README Generator</h1>
-        <p class="text-center text-gray-600 mb-8">Quickly create professional README.md files for your projects.</p>
-        
-        <form id="readme-form" class="space-y-4">
-            <div>
-                <label for="project-name" class="block text-sm font-medium text-gray-700">Project Name</label>
-                <input type="text" id="project-name" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:ring-blue-500 focus:border-blue-500" placeholder="My Awesome Project" required>
-            </div>
-            <div>
-                <label for="description" class="block text-sm font-medium text-gray-700">Description</label>
-                <textarea id="description" rows="3" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:ring-blue-500 focus:border-blue-500" placeholder="A brief overview of your project..."></textarea>
-            </div>
-            <div>
-                <label for="installation" class="block text-sm font-medium text-gray-700">Installation</label>
-                <textarea id="installation" rows="2" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:ring-blue-500 focus:border-blue-500" placeholder="e.g., `npm install`"></textarea>
-            </div>
-            <div>
-                <label for="usage" class="block text-sm font-medium text-gray-700">Usage</label>
-                <textarea id="usage" rows="2" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:ring-blue-500 focus:border-blue-500" placeholder="How to use your project..."></textarea>
-            </div>
-            <div>
-                <label for="license" class="block text-sm font-medium text-gray-700">License (e.g., MIT, Apache 2.0)</label>
-                <input type="text" id="license" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:ring-blue-500 focus:border-blue-500" value="MIT">
-            </div>
-            
-            <button type="submit" class="w-full bg-blue-600 text-white p-3 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
-                Generate README.md (Buy for $9.99)
+<body class="bg-gray-100 text-gray-900">
+    <div class="flex flex-col items-center justify-center min-h-screen p-4">
+        <header class="text-center mb-8">
+            <h1 class="text-5xl font-extrabold text-blue-600 mb-2">README.md Generator</h1>
+            <p class="text-xl text-gray-700">Craft perfect project documentation, effortlessly.</p>
+        </header>
+
+        <main class="bg-white rounded-lg shadow-xl p-8 w-full max-w-2xl text-center">
+            <h2 class="text-3xl font-bold mb-4">Ready to create your README?</h2>
+            <p class="text-lg mb-6">Generate professional, custom READMEs with badges and templates in minutes.</p>
+            <button id="trigger-purchase" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg text-xl transition duration-300 ease-in-out transform hover:scale-105">
+                Get Started for Just $2.99
             </button>
-        </form>
+            <p class="mt-4 text-gray-500 text-sm">One-time purchase, instant access.</p>
+        </main>
 
-        <div id="result" class="mt-8 hidden">
-            <h2 class="text-2xl font-bold text-gray-800 mb-4">Your README.md</h2>
-            <pre id="readme-output" class="bg-gray-100 p-4 rounded-md border border-gray-300 text-sm overflow-x-auto whitespace-pre-wrap"></pre>
-            <button id="download-btn" class="mt-4 w-full bg-green-600 text-white p-3 rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50">Download README.md</button>
-        </div>
+        <footer class="mt-12 text-gray-600 text-sm">
+            &copy; 2023 APEX. All rights reserved.
+        </footer>
     </div>
-
-    <script src="https://js.stripe.com/v3/"></script>
     <script>
-        const stripe = Stripe('pk_test_YOUR_STRIPE_PUBLISHABLE_KEY'); // Replace with your publishable key
-        const form = document.getElementById('readme-form');
-        const resultDiv = document.getElementById('result');
-        const readmeOutput = document.getElementById('readme-output');
-        const downloadBtn = document.getElementById('download-btn');
-
-        form.addEventListener('submit', async (e) => {
-            e.preventDefault();
-
-            const projectData = {
-                projectName: document.getElementById('project-name').value,
-                description: document.getElementById('description').value,
-                installation: document.getElementById('installation').value,
-                usage: document.getElementById('usage').value,
-                license: document.getElementById('license').value
-            };
-
-            try {
-                // Create checkout session on backend (replace with your Vercel serverless function endpoint)
-                const response = await fetch('/api/create-checkout-session', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ product: 'readme_generator', amount: 999, ...projectData })
-                });
-                const session = await response.json();
-
-                if (session.error) {
-                    alert(session.error);
-                    return;
-                }
-
-                const { error } = await stripe.redirectToCheckout({
-                    sessionId: session.id,
-                });
-
-                if (error) {
-                    console.error('Stripe Checkout error:', error);
-                    alert('Error initiating payment. Please try again.');
-                }
-
-            } catch (error) {
-                console.error('Error:', error);
-                alert('An error occurred. Please try again later.');
-            }
+        document.getElementById('trigger-purchase').addEventListener('click', () => {
+            alert('Pretending to initiate Stripe Checkout for $2.99...');
+            // In a real application, this would redirect to Stripe Checkout or open a modal.
+            // Example: window.location.href = 'YOUR_STRIPE_CHECKOUT_URL';
         });
-
-        // This part would ideally be triggered by a successful payment webhook or redirect
-        // For demo purposes, let's assume it's called after payment success
-        function displayReadme(markdownContent) {
-            readmeOutput.textContent = markdownContent;
-            resultDiv.classList.remove('hidden');
-
-            downloadBtn.onclick = () => {
-                const blob = new Blob([markdownContent], { type: 'text/markdown' });
-                const url = URL.createObjectURL(blob);
-                const a = document.createElement('a');
-                a.href = url;
-                a.download = 'README.md';
-                document.body.appendChild(a);
-                a.click();
-                document.body.removeChild(a);
-                URL.revokeObjectURL(url);
-            };
-        }
-
-        // Placeholder function, replace with actual backend call post-payment
-        async function generateMarkdown(data) {
-            const { projectName, description, installation, usage, license } = data;
-            let md = `# ${projectName}
-
-## Description
-${description || 'A brief description of the project.'}
-
-## Installation
-${installation || 'bash\n# Example\nnpm install\n'}
-
-## Usage
-${usage || 'bash\n# Example\nnpm start\n'}
-
-## License
-This project is licensed under the ${license || 'MIT'} License - see the [LICENSE.md](LICENSE.md) file for details.
-
-`;
-            return md;
-        }
-
-        // Simulate successful payment redirect for local testing
-        const urlParams = new URLSearchParams(window.location.search);
-        if (urlParams.get('payment_success') === 'true') {
-            const storedData = JSON.parse(localStorage.getItem('readme_project_data'));
-            if (storedData) {
-                 generateMarkdown(storedData).then(displayReadme);
-                 localStorage.removeItem('readme_project_data'); // Clean up
-            }
-        }
     </script>
 </body>
 </html>
