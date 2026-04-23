@@ -1,19 +1,17 @@
-# Apex README Generator
+# APEX README Generator
 
-Craft professional and customizable README.md files for your GitHub projects effortlessly. Select sections, input details, and download your perfect README in seconds!
+Generate professional GitHub README files quickly and easily.
 
 ## Features
 
-- Customizable sections (Setup, Features, Usage, Contributing, License, Badges)
-- Live preview of your generated README
-- Copy to clipboard functionality
-- Download `.md` file
-- One-time payment for full access
+- Pre-built sections (badges, description, setup, usage, contributing, license)
+- Simple interface for content input
+- Generates clean Markdown output
 
-## Usage
+## Get Started
 
-Visit the web application, fill in your project details, select desired sections, and either copy the markdown or download the `.md` file.
+Visit [our website](https://apexreadmegen.vercel.app) (link to be updated post-deployment) to start creating your READMEs!
 
-## Pricing
+## Support
 
-Unlock full access for a one-time payment of $4.99.
+For any questions or issues, please contact `support@apex.llc`.
