@@ -1,1 +1,39 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>APEX README Generator</title><style>body{font-family:sans-serif;margin:20px;background:#f0f2f5;color:#333}h1{color:#2c3e50;text-align:center}p{text-align:center;max-width:600px;margin:15px auto}div.buttons{display:flex;justify-content:center;gap:15px;margin-top:30px}button{padding:12px 25px;font-size:1em;border:none;border-radius:5px;cursor:pointer;transition:background-color .3s ease,transform .2s ease}button.primary{background-color:#4CAF50;color:white}button.primary:hover{background-color:#45a049;transform:scale(1.02)}button.secondary{background-color:#007bff;color:white}button.secondary:hover{background-color:#0056b3;transform:scale(1.02)}footer{text-align:center;margin-top:50px;font-size:.8em;color:#777}</style></head><body><h1>🌟 APEX README Generator 🌟</h1><p>Craft professional and engaging GitHub READMEs in minutes. Select sections, add your content, and get clean, beautiful Markdown – no hassle, no fuss.</p><div class="buttons"><button class="primary" onclick="alert('Feature coming soon! Thanks for your interest!')">Generate Your README</button><button class="secondary" onclick="alert('More info coming soon!')">Learn More</button></div><footer><p>&copy; 2024 APEX Digital Products. All rights reserved.</p></footer></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APEX | README Generator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen p-4">
+    <div class="bg-white p-8 rounded-lg shadow-lg max-w-2xl w-full">
+        <h1 class="text-3xl font-bold text-gray-800 mb-4">Professional README Generator</h1>
+        <p class="text-gray-600 mb-6">Craft a stunning GitHub README in minutes.</p>
+        
+        <div class="space-y-4">
+            <div>
+                <label for="projectName" class="block text-sm font-medium text-gray-700">Project Name</label>
+                <input type="text" id="projectName" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2">
+            </div>
+            <div>
+                <label for="description" class="block text-sm font-medium text-gray-700">Description</label>
+                <textarea id="description" rows="3" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"></textarea>
+            </div>
+            <div>
+                <label for="technologies" class="block text-sm font-medium text-gray-700">Technologies (comma-separated)</label>
+                <input type="text" id="technologies" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2">
+            </div>
+            
+            <button class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md">
+                Generate README
+            </button>
+            
+            <div class="mt-6 bg-gray-50 p-4 rounded-md border border-gray-200">
+                <h2 class="text-xl font-semibold text-gray-800">Live Preview (Coming Soon)</h2>
+                <pre class="mt-2 text-gray-700 bg-gray-100 p-2 rounded text-sm overflow-auto">Your professional README will appear here...</pre>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
