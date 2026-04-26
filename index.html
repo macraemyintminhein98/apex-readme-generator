@@ -3,37 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>APEX | README Generator</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>APEX README Generator</title>
+    <style>
+        body { font-family: sans-serif; margin: 2em; line-height: 1.6; background: #f4f4f4; color: #333; }
+        .container { max-width: 800px; margin: auto; background: #fff; padding: 2em; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        h1 { color: #0056b3; }
+        .cta { background-color: #007bff; color: white; padding: 1em 1.5em; border: none; border-radius: 5px; cursor: pointer; font-size: 1.1em; margin-top: 1em; display: inline-block; text-decoration: none; }
+        .cta:hover { background-color: #0056b3; }
+    </style>
 </head>
-<body class="bg-gray-100 flex items-center justify-center min-h-screen p-4">
-    <div class="bg-white p-8 rounded-lg shadow-lg max-w-2xl w-full">
-        <h1 class="text-3xl font-bold text-gray-800 mb-4">Professional README Generator</h1>
-        <p class="text-gray-600 mb-6">Craft a stunning GitHub README in minutes.</p>
-        
-        <div class="space-y-4">
-            <div>
-                <label for="projectName" class="block text-sm font-medium text-gray-700">Project Name</label>
-                <input type="text" id="projectName" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2">
-            </div>
-            <div>
-                <label for="description" class="block text-sm font-medium text-gray-700">Description</label>
-                <textarea id="description" rows="3" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"></textarea>
-            </div>
-            <div>
-                <label for="technologies" class="block text-sm font-medium text-gray-700">Technologies (comma-separated)</label>
-                <input type="text" id="technologies" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2">
-            </div>
-            
-            <button class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md">
-                Generate README
-            </button>
-            
-            <div class="mt-6 bg-gray-50 p-4 rounded-md border border-gray-200">
-                <h2 class="text-xl font-semibold text-gray-800">Live Preview (Coming Soon)</h2>
-                <pre class="mt-2 text-gray-700 bg-gray-100 p-2 rounded text-sm overflow-auto">Your professional README will appear here...</pre>
-            </div>
-        </div>
+<body>
+    <div class="container">
+        <h1>APEX README Generator</h1>
+        <p>Craft professional, dynamic GitHub READMEs in minutes. Input your project details, tech stack, features, and more – we'll generate a stunning <code>README.md</code> for you.</p>
+        <p>Perfect for developers, open-source contributors, and students.</p>
+        <h2>Features:</h2>
+        <ul>
+            <li>Intuitive input forms</li>
+            <li>Dynamic badge generation (npm, PyPI, GitHub Actions, etc.)</li>
+            <li>Customizable sections</li>
+            <li>Instant markdown preview</li>
+            <li>Copy-to-clipboard &amp; download options</li>
+        </ul>
+        <a href="#" class="cta" onclick="alert('This is a demo. In a real product, this would lead to the generator application!')">Generate Your README Now!</a>
+        <p><em>Note: This is a placeholder page. The actual generator application would be built and hosted here.</em></p>
     </div>
 </body>
 </html>
