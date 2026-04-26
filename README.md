@@ -1,11 +1,14 @@
-# Apex README Generator
+# APEX README Generator
 
-**Apex README Generator** helps developers create stunning, dynamic, and personalized GitHub READMEs with ease. Connect your GitHub account, select your preferred sections (e.g., recent activity, projects, skills), choose a premium template, and generate a markdown file that makes your profile shine.
+Generate professional and visually appealing GitHub README.md files effortlessly. 
 
-## Features:
-- GitHub API integration for dynamic data.
-- Customizable sections (About Me, Skills, Activity, Projects).
-- Premium templates for a polished look.
-- Easy markdown generation.
+## Features
 
-**Get started today and elevate your GitHub profile!**
+*   **Customizable Templates:** Select from a variety of modern designs.
+*   **Easy Input:** Simply fill in project details, features, installation steps, and more.
+*   **Badges & Licenses:** Integrate popular badges and open-source licenses with ease.
+*   **Export Options:** Download your generated README.md in a click.
+
+## Get Started
+
+Visit our website to get started: [Link to Product] (Coming Soon)
