@@ -3,35 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>README Builder</title>
-    <meta name="description" content="Generate professional GitHub READMEs easily.">
+    <title>APEX README Generator</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
-        body { font-family: 'Inter', sans-serif; }
-    </style>
 </head>
 <body class="bg-gray-100 flex items-center justify-center min-h-screen">
-    <div class="bg-white p-8 rounded-lg shadow-lg max-w-md w-full text-center">
-        <h1 class="text-4xl font-bold text-gray-800 mb-4">README Builder</h1>
-        <p class="text-gray-600 mb-6">Craft the perfect README for your GitHub projects.</p>
-        <form action="/api/generate-readme" method="POST">
-            <input type="text" name="projectName" placeholder="Project Name" class="w-full p-3 mb-4 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
-            <textarea name="description" placeholder="Project Description (Markdown supported)" rows="5" class="w-full p-3 mb-4 border border-gray-300 rounded resize-y focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
-            <label class="block text-sm font-medium text-gray-700 mb-2 mt-4">Choose Template:</label>
-            <select name="template" class="w-full p-3 mb-6 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
-                <option value="basic">Basic</option>
-                <option value="advanced">Advanced (with features, installation, usage sections)</option>
-            </select>
-            <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-200">
-                Generate README
-            </button>
+    <div class="bg-white p-8 rounded shadow-md w-full max-w-md">
+        <h1 class="text-3xl font-bold mb-6 text-center">APEX README Generator</h1>
+        <p class="text-center text-gray-600 mb-6">Generate professional GitHub READMEs instantly!</p>
+        <form id="readmeForm" class="space-y-4">
+            <div>
+                <label for="projectName" class="block text-sm font-medium text-gray-700">Project Name</label>
+                <input type="text" id="projectName" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2">
+            </div>
+            <div>
+                <label for="description" class="block text-sm font-medium text-gray-700">Description</label>
+                <textarea id="description" rows="3" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"></textarea>
+            </div>
+            <button type="submit" class="w-full bg-blue-600 text-white p-2 rounded-md hover:bg-blue-700 transition-colors">Generate README</button>
         </form>
-
-        <p class="text-sm text-gray-500 mt-6">One-time purchase for full access to templates & customization.</p>
-        <a href="/buy" class="inline-block bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded mt-4 transition-colors duration-200">
-            Buy Now - $9.99
-        </a>
+        <div id="output" class="mt-6 bg-gray-50 p-4 rounded-md hidden">
+            <h2 class="text-xl font-semibold mb-2">Output Markdown:</h2>
+            <textarea id="markdownOutput" readonly rows="10" class="w-full border border-gray-300 rounded-md shadow-sm p-2 text-sm"></textarea>
+            <button onclick="copyToClipboard()" class="mt-4 w-full bg-green-600 text-white p-2 rounded-md hover:bg-green-700 transition-colors">Copy to Clipboard</button>
+        </div>
     </div>
+
+    <script>
+        document.getElementById('readmeForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const projectName = document.getElementById('projectName').value || 'My Awesome Project';
+            const description = document.getElementById('description').value || 'A brief description of my project.';
+
+            const markdown = `# ${projectName}
+
+${description}
+
+## Features
+
+- Feature 1
+- Feature 2
+
+## Installation
+
+bash
+# Example command
+ instalación
+
+
+## Usage
+
+bash
+# Example usage
+ example usage
+
+
+## License
+
+This project is licensed under the MIT License.
+`;
+
+            document.getElementById('markdownOutput').value = markdown;
+            document.getElementById('output').classList.remove('hidden');
+        });
+
+        function copyToClipboard() {
+            const textarea = document.getElementById('markdownOutput');
+            textarea.select();
+            textarea.setSelectionRange(0, 99999); // For mobile devices
+            document.execCommand('copy');
+            alert('README Copied to Clipboard!');
+        }
+    </script>
 </body>
 </html>
