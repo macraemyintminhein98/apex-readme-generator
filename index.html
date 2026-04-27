@@ -3,76 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>APEX README Generator</title>
+    <title>README.md Generator</title>
+    <meta name="description" content="Generate professional README.md files instantly.">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .max-w-7xl { max-width: 80rem; }
+        .min-h-screen { min-height: 100vh; }
+    </style>
 </head>
 <body class="bg-gray-100 flex items-center justify-center min-h-screen">
-    <div class="bg-white p-8 rounded shadow-md w-full max-w-md">
-        <h1 class="text-3xl font-bold mb-6 text-center">APEX README Generator</h1>
-        <p class="text-center text-gray-600 mb-6">Generate professional GitHub READMEs instantly!</p>
-        <form id="readmeForm" class="space-y-4">
-            <div>
-                <label for="projectName" class="block text-sm font-medium text-gray-700">Project Name</label>
-                <input type="text" id="projectName" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2">
+    <div class="bg-white p-8 rounded-lg shadow-lg max-w-lg w-full text-center">
+        <h1 class="text-4xl font-bold mb-4 text-gray-800">README.md Generator</h1>
+        <p class="text-gray-600 mb-6">Craft professional GitHub READMEs effortlessly.</p>
+        <form action="/submit" method="POST">
+            <div class="mb-4">
+                <input type="text" name="projectName" placeholder="Project Name" class="w-full p-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
             </div>
-            <div>
-                <label for="description" class="block text-sm font-medium text-gray-700">Description</label>
-                <textarea id="description" rows="3" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"></textarea>
+            <div class="mb-4">
+                <textarea name="description" placeholder="Project Description (e.g., A tool to...)" rows="3" class="w-full p-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
             </div>
-            <button type="submit" class="w-full bg-blue-600 text-white p-2 rounded-md hover:bg-blue-700 transition-colors">Generate README</button>
+            <div class="mb-4">
+                <select name="template" class="w-full p-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <option value="basic">Basic Template</option>
+                    <option value="advanced">Advanced Template</option>
+                </select>
+            </div>
+            <button type="submit" class="w-full bg-blue-600 text-white p-3 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition duration-150">Generate README</button>
         </form>
-        <div id="output" class="mt-6 bg-gray-50 p-4 rounded-md hidden">
-            <h2 class="text-xl font-semibold mb-2">Output Markdown:</h2>
-            <textarea id="markdownOutput" readonly rows="10" class="w-full border border-gray-300 rounded-md shadow-sm p-2 text-sm"></textarea>
-            <button onclick="copyToClipboard()" class="mt-4 w-full bg-green-600 text-white p-2 rounded-md hover:bg-green-700 transition-colors">Copy to Clipboard</button>
-        </div>
+        <p class="mt-6 text-sm text-gray-500">Unlock more features and templates for just $9.99!</p>
+        <div id="payment-info" class="mt-4"></div>
     </div>
-
     <script>
-        document.getElementById('readmeForm').addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const projectName = document.getElementById('projectName').value || 'My Awesome Project';
-            const description = document.getElementById('description').value || 'A brief description of my project.';
-
-            const markdown = `# ${projectName}
-
-${description}
-
-## Features
-
-- Feature 1
-- Feature 2
-
-## Installation
-
-bash
-# Example command
- instalación
-
-
-## Usage
-
-bash
-# Example usage
- example usage
-
-
-## License
-
-This project is licensed under the MIT License.
-`;
-
-            document.getElementById('markdownOutput').value = markdown;
-            document.getElementById('output').classList.remove('hidden');
-        });
-
-        function copyToClipboard() {
-            const textarea = document.getElementById('markdownOutput');
-            textarea.select();
-            textarea.setSelectionRange(0, 99999); // For mobile devices
-            document.execCommand('copy');
-            alert('README Copied to Clipboard!');
-        }
+      // Placeholder for frontend logic, e.g., Stripe integration comes here.
+      // For a concise demo, we'll keep the JS minimal.
+      // In a real build, this would load Stripe.js and handle payment intents.
+      // Example (non-functional for this demo): 
+      // const paymentInfo = document.getElementById('payment-info');
+      // paymentInfo.innerHTML = '<button class="mt-4 p-2 bg-green-500 text-white rounded" onclick="alert(\'Stripe checkout would open here!\')">Buy Full Version</button>';
     </script>
 </body>
 </html>
