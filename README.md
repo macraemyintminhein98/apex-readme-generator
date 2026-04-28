@@ -1,18 +1,16 @@
-# README.md Generator
+# Readme AI
 
-Generate professional and customizable `README.md` files for your GitHub repositories with ease.
+**Generate Professional READMEs Instantly for Your GitHub Projects.**
 
-## Features:
+Readme AI is a micro-SaaS web application designed to simplify the creation of high-quality `README.md` files for developers, open-source contributors, and students.
 
-*   **User-friendly Interface:** Input project details through a simple web form.
-*   **Essential Sections:** Includes project description, installation, usage, contributing, license, and technologies.
-*   **Templates:** Choose from pre-built templates to get started quickly.
-*   **Customization:** Edit and refine your README content before final download.
+## Features
 
-## Get Started:
+*   **Customizable Content:** Easily input project name, description, features, installation instructions, usage examples, and licensing information.
+*   **Modern Templates:** Choose from a selection of professionally designed README templates.
+*   **Live Preview:** See your README come to life as you type.
+*   **One-Time Purchase:** Access the full generation capabilities with a simple, secure payment.
 
-Visit [GENERATOR_URL_HERE] to create your first README.md!
+## Get Started
 
-## Pricing:
-
-Access advanced features, premium templates, and full customization for just **$9.99**.
+Visit [Readme AI](https://apex-readme-generator.vercel.app/) (link will be live after deployment) to generate your first professional README today!
