@@ -1,15 +1,13 @@
 # APEX README Generator
 
-Create stunning and functional `README.md` files for your GitHub repositories with ease. This tool helps developers, open-source contributors, and students quickly generate professional documentation.
+A simple web application to generate professional and visually appealing GitHub `README.md` files based on user input. Offers various template styles to help developers, open-source contributors, and students quickly create polished project documentation.
 
-## Features
+## Features (Planned)
+- User-friendly form for project details
+- Multiple high-quality README templates
+- Markdown generation logic
+- Download `.md` file button
+- Stripe integration for one-time payment
 
-*   **User-friendly input forms:** Easily enter project name, description, features, installation, usage, contributing guidelines, and license information.
-*   **Customizable Templates:** Choose from a selection of modern README templates.
-*   **Live Preview:** See your README evolve in real-time as you type.
-*   **One-click Download:** Get your perfectly formatted `.md` file instantly.
-*   **Save Time:** Focus on coding, not crafting documentation from scratch.
-
-## Get Started
-
-Visit [http://localhost:3000](http://localhost:3000) (or your deployed URL) and start generating your perfect README today!
+## Get Started (Future State)
+Visit [apex-readme-generator.com](/#) to start generating your READMEs. Purchase unlocks all templates and features.
